@@ -1,50 +1,80 @@
-# GridForge Garage Systems — Laravel 13 + Filament 3 ERP
+# GridForge Garage Systems
 
-Production-ready public website, Filament ERP, and AI assistants for **GridForge Garage Systems**, a Denver garage organization specialist serving wall tracks, overhead racks, custom cabinets, and full garage makeovers across the Front Range.
+Full-stack business platform for a garage organization specialist company — public website, Filament admin ERP, knowledge base, and AI assistants in one Laravel app.
 
 ## Features
-- 🏠 Premium public marketing site (hero, services, about, dashboard preview, contact)
-- 🧰 Service detail pages for garage storage offerings
-- 📰 Blog / knowledge content with seeded posts
-- 📬 Contact form that stores leads in the database
-- 💬 Floating WhatsApp button + public AI chatbot widget
-- 🗂️ Filament 3 ERP at `/admin` (customers, jobs, inventory, invoices, payments, appointments)
-- 👥 Roles: Admin, Manager, Staff
-- 📊 Reports dashboard with stats and charts
-- ⚙️ Settings page + AI Studio (content generator, automation suggestions, troubleshooting)
-- 📚 Public knowledge base (guides, common issues, admin manual, troubleshooting)
-- 🌱 Realistic demo seeders for a US SME workflow
 
-## Tech Stack
-- Laravel 13
-- Filament 3
-- Livewire + Alpine.js
-- Tailwind-ready frontend + custom branded CSS
-- SQLite (demo) / MySQL (production)
-- OpenAI HTTP integration with Gemini config keys for fallback
-- Spatie Laravel Permission
+### Public website
+- Marketing home with hero, services, about, and contact
+- Dedicated service pages for the garage organization specialist offer set
+- Blog / journal with seeded posts
+- Knowledge base (common issues, guides, admin notes, troubleshooting)
+- Contact form that saves leads to the database
+- Floating WhatsApp button
+- Public AI chatbot (FAQ-trained; live API when keys are set)
 
-## Installation
+### Admin ERP (`/admin`)
+- Customers / clients
+- Jobs / projects / orders
+- Inventory & products
+- Invoices & payments
+- Appointments / scheduling
+- Roles: Admin, Manager, Staff (Spatie Permission)
+- Reports dashboard with stats and charts
+- Company settings
+- AI Studio: content drafts, automation ideas, troubleshooting help
+- Seeded demo data for a complete walkthrough
+
+### AI
+- Public chatbot widget
+- Admin content generator
+- Automation suggestions panel
+- Troubleshooting assistant
+- OpenAI or Gemini via HTTP — FAQ demo mode when keys are empty
+
+## Technology
+
+| Layer | Stack |
+|-------|--------|
+| Backend | Laravel 13, PHP 8.3+ |
+| Admin | Filament 3 |
+| UI | Livewire, Alpine.js, Tailwind CSS |
+| Auth / roles | Spatie Laravel Permission |
+| Database | MySQL or SQLite (local demo) |
+| AI | OpenAI / Gemini REST (`App\Services\AiService`) |
+| Tooling | Composer, Vite, Artisan |
+
+## Getting started
+
 ```bash
 git clone https://github.com/imranbru99/garage-organization-specialist.git
 cd garage-organization-specialist
 composer install
-copy .env.example .env   # Windows
+cp .env.example .env
 php artisan key:generate
-# Ensure database/database.sqlite exists when using SQLite
+# SQLite demo: create database/database.sqlite if needed
 php artisan migrate --seed
 php artisan serve
 ```
 
-Admin panel: `http://localhost:8000/admin`
+| Surface | URL |
+|---------|-----|
+| Public site | http://localhost:8000 |
+| Admin | http://localhost:8000/admin |
 
-Default admin login:
-- Email: `admin@example.com`
-- Password: `password`
+**Demo login:** `admin@example.com` / `password`
 
-Optional AI: set `OPENAI_API_KEY` in `.env`. Without a key, the chatbot and AI Studio use the built-in garage FAQ demo responses.
+Optional in `.env`:
 
-## Screenshots / Visual Dashboard
+```
+OPENAI_API_KEY=
+OPENAI_MODEL=gpt-4o-mini
+GEMINI_API_KEY=
+GEMINI_MODEL=gemini-1.5-flash
+```
+
+## Screenshots
+
 ![Organized garage wall storage](https://images.unsplash.com/photo-1553413077-190dd305871c?auto=format&fit=crop&w=1400&q=80)
 
 ![Overhead rack workshop](https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?auto=format&fit=crop&w=1400&q=80)
@@ -53,11 +83,9 @@ Optional AI: set `OPENAI_API_KEY` in `.env`. Without a key, the chatbot and AI S
 
 ![Garage tools and zones](https://images.unsplash.com/photo-1504148455328-c376907d081c?auto=format&fit=crop&w=1400&q=80)
 
-## Live Demo
-Placeholder — deploy to your preferred host and share the public URL + `/admin` access for stakeholders.
+## Live demo
 
-## SEO-optimized repo description suggestion
-`GridForge Garage Systems — Laravel 13 + Filament 3 website & ERP for US garage organization (storage racks, cabinets, AI chatbot, knowledge base).`
+Deploy to Forge, Vapor, or any PHP 8.3+ host, then replace this section with your public URL.
 
 ---
 
@@ -76,3 +104,4 @@ Delivery Mode: Async-ready, Slack, Discord, Jira, GitHub, and production-first a
 | 📧 Direct Email | me@imrandev.bd | Send Email ↗ |
 | 🐦 X (Twitter) | @imrandev_bd | Follow ↗ |
 | 📺 YouTube Tech | @ImranDevBD | Subscribe ↗ |
+
